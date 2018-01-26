@@ -17,7 +17,7 @@ mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
 touch /etc/squid/blacklist.acl
 
 echo "获取git源上的squid配置 => https://github.com/LunacyZeus/fack-centos-squid/raw/master/squid.conf"
-wget -O /etc/squid/squid.conf  https://github.com/LunacyZeus/fack-centos-squid/raw/master/squid.conf
+wget -O /etc/squid/squid.conf --no-check-certificate  https://github.com/LunacyZeus/fack-centos-squid/raw/master/squid.conf
 
 echo "放行squid代理端口"
 iptables -I INPUT -p tcp --dport 31280 -j ACCEPT
@@ -42,6 +42,5 @@ echo "启动squid代理"
 systemctl restart squid
 echo "设置开机自启"
 systemctl enable squid
-
 else
 echo "获取centos版本失败,请自行输入命令启动,命令请参阅git源的说明文件"
