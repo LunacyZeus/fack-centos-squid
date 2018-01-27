@@ -39,8 +39,8 @@ chkconfig squid on
 
 elif [ $SYSTEM = "7" ] ; then #centos7
 echo "启动squid代理"
-systemctl restart squid
+/bin/systemctl restart squid
 echo "设置开机自启"
-systemctl enable squid
+/bin/systemctl enable squid
 else
 echo "获取centos版本失败,请自行输入命令启动,命令请参阅git源的说明文件"
